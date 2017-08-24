@@ -32,7 +32,7 @@ public class DemoHandler implements WxMessageHandler{
 			contextStr = "你好";
 			result = getXmlOutMsg(wxMessage, contextStr);
 		} else if(keyword.contains("天气")) {
-			String cityName = keyword.substring(0, 2);
+			String cityName = keyword.split("天气")[0];
 			System.out.println("cityName=" + cityName);
 			List<String> data = WeatherService.getInstance().getWeatherListData(cityName);
 			if(data.size() > 30) {
